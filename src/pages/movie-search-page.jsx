@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "tailwindcss";
-import useAxiosFetch from "./hook/useAxiosFetch";
-import MovieCard from "./components/MovieCard";
-import MovieForm from "./components/MovieForm";
-import SpinnerMini from "./components/SpinnerMini";
+import useAxiosFetch from "../hook/useAxiosFetch";
+import MovieCard from "../components/MovieCard";
+import MovieForm from "../components/MovieForm";
+import SpinnerMini from "../components/SpinnerMini";
 
 const MovieSearchPage = () => {
   const [searchedMovie, setSearchedMovie] = useState("");
