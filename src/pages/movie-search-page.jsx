@@ -21,7 +21,7 @@ const MovieSearchPage = () => {
         setSearchedMovie={setSearchedMovie}
       ></MovieForm>
       <div className="flex flex-wrap pt-4 justify-center">
-        {error.length ? <p>Error: {error.message}</p> : ""}
+        {error ? <p>Error: {error}</p> : ""}
         {data.Error ? <p>Error: {data.Error}</p> : ""}
         {isLoading && <SpinnerMini />}
         {data?.Search?.map((val) => (

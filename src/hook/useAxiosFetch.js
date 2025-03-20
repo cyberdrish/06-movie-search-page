@@ -5,12 +5,12 @@ const KEY = "c35d1b0b";
 
 const useAxiosFetch = (url = `http://www.omdbapi.com/?apikey=${KEY}&s=`) => {
   const [data, setData] = useState([]);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const fetchAll = (query) => {
     if (!url) return;
     setData([]);
-    setError([]);
+    setError();
     setIsLoading(true);
     axios
       .get(url + query)
@@ -19,7 +19,10 @@ const useAxiosFetch = (url = `http://www.omdbapi.com/?apikey=${KEY}&s=`) => {
         setData(res.data);
         setIsLoading(false);
       })
-      .catch((err) => setError(err));
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err.message);
+      });
   };
   return { fetchAll, data, error, isLoading };
 };
