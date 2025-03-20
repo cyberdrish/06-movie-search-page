@@ -12,9 +12,7 @@ const MovieSearchPage = () => {
     e.preventDefault();
     fetchAll(searchedMovie);
   }
-  useEffect(() => {
-    console.log(error);
-  }, [error]);
+
   return (
     <div className="p-2 grid grid-cols-1  grid-rows-[auto,auto]">
       <MovieForm
