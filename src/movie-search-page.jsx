@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "tailwindcss";
 import useAxiosFetch from "./hook/useAxiosFetch";
 import MovieCard from "./components/MovieCard";
