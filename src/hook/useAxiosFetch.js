@@ -1,9 +1,12 @@
 // useAxiosFetch.js
 import { useState } from "react";
 import axios from "axios";
-const KEY = "c35d1b0b";
 
-const useAxiosFetch = (url = `http://www.omdbapi.com/?apikey=${KEY}&s=`) => {
+const useAxiosFetch = (
+  url = `http://www.omdbapi.com/?apikey=${
+    import.meta.env.VITE_MOVIE_API_KEY
+  }&s=`
+) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
