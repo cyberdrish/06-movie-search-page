@@ -1,4 +1,13 @@
-function MovieForm({ handleMovieSearch, searchedMovie, setSearchedMovie }) {
+import { useState } from "react";
+
+function MovieForm({ fetchAll }) {
+  const [searchedMovie, setSearchedMovie] = useState("");
+
+  function handleMovieSearch(e) {
+    e.preventDefault();
+    fetchAll(searchedMovie);
+  }
+
   return (
     <form
       onSubmit={(e) => handleMovieSearch(e)}
