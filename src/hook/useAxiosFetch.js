@@ -13,6 +13,11 @@ const useAxiosFetch = (
   const cancelTokenSourceRef = useRef(null);
 
   const fetchAll = (query) => {
+    const url = new URL(
+      `http://www.omdbapi.com/?apikey=${
+        import.meta.env.VITE_MOVIE_API_KEY
+      }&${new URLSearchParams({ s: query }).toString()}`
+    );
     if (!url) return;
 
     if (cancelTokenSourceRef.current) {
@@ -20,12 +25,13 @@ const useAxiosFetch = (
     }
 
     cancelTokenSourceRef.current = axios.CancelToken.source();
+    console.log(url);
 
     setData([]);
     setError(null);
     setIsLoading(true);
     axios
-      .get(url + query, {
+      .get(url, {
         cancelToken: cancelTokenSourceRef.current.token,
       })
       .then((res) => {

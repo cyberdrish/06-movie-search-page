@@ -1,16 +1,11 @@
 import { useState } from "react";
 
-function MovieForm({ fetchAll }) {
+function MovieForm({ onMovieSearch }) {
   const [searchedMovie, setSearchedMovie] = useState("");
-
-  function handleMovieSearch(e) {
-    e.preventDefault();
-    fetchAll(searchedMovie);
-  }
 
   return (
     <form
-      onSubmit={(e) => handleMovieSearch(e)}
+      onSubmit={(e) => onMovieSearch(e, searchedMovie)}
       className="max-h-35 overflow-y-auto rounded-md justify-items-center"
     >
       <h1 className="text-3xl">Movie search page</h1>

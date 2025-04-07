@@ -7,9 +7,13 @@ import SpinnerMini from "../components/SpinnerMini";
 const MovieSearchPage = () => {
   const { fetchAll, data, error, isLoading } = useAxiosFetch();
 
+  function handleMovieSearch(e, searchedMovie) {
+    e.preventDefault();
+    fetchAll(searchedMovie);
+  }
   return (
     <div className="p-2 grid grid-cols-1  grid-rows-[auto,auto]">
-      <MovieForm fetchAll={fetchAll}></MovieForm>
+      <MovieForm onMovieSearch={handleMovieSearch}></MovieForm>
       <div className="flex flex-wrap pt-4 justify-center">
         {error && <p>Error: {error}</p>}
         {data?.Error && <p>Error: {data.Error}</p>}
